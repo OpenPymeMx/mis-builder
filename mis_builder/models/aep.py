@@ -197,7 +197,7 @@ class AccountingExpressionProcessor(object):
                                                   period_from, period_to,
                                                   mode, target_move)
         return expression.OR(aml_domains) + \
-            expression.OR(date_domain_by_mode.values())
+            expression.OR(list(date_domain_by_mode.values()))
 
     def _period_has_moves(self, period):
         move_model = self.env['account.move']
